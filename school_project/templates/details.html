@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="details" method="post">
+    {% csrf_token %}
+   <label for="2name">Name:</label><br>
+  <input type="text" id="2name" name="Name"><br>
+  <label for="1name">DOB:</label><br>
+  <input type="date" id="1name" name="DOB"><br>
+    <label for="age">Age:</label><br>
+  <input type="number" id="age" name="age"><br>
+  <label for="phnumber">Phone:</label><br>
+  <input type="number" id="phnumber" name="phnumber"><br>
+     <input type="radio" id="gender" name="gender" value="Male">
+  <label for="gender">Male</label>
+  <input type="radio" id="gender1" name="gender" value="Female">
+  <label for="gender1">Female</label><br>
+    <label for="mail">Email:</label><br>
+  <input type="email" id="mail" name="mail"><br>
+    <label for="address">Address:</label><br>
+    <textarea id="address" name="address" rows="4" cols="20"></textarea><br>
+
+  <script>
+        function getCities() {
+            var country = document.getElementById('country').value;
+            var cities = document.getElementById('city');
+            cities.options.length = 0;
+            switch (country) {
+                case 'Kottayam ':
+                    cities.options.add(new Option('Erumely', 'Erumely'));
+                    cities.options.add(new Option('Kply', 'Kply'));
+
+                    break;
+                case 'Kollam':
+                    cities.options.add(new Option('Punalur', 'Punalur'));
+                    cities.options.add(new Option('Anayadi', 'Anayadi'));
+
+                    break;
+                case 'Idukki':
+                    cities.options.add(new Option('Thodupuza', ' Thodupuza'));
+                    cities.options.add(new Option('Kattapana', 'Kattapana'));
+
+                    break;
+                case 'Kochi':
+                    cities.options.add(new Option('Edapally', ' Edapally'));
+                    cities.options.add(new Option('Kakanadu', 'Kakanadu'));
+
+                    break;
+                case 'Kannur':
+                    cities.options.add(new Option('Talashery', 'Talashery'));
+                    cities.options.add(new Option('Mahi', 'Mahi'));
+
+                    break;
+
+
+
+
+
+                default:
+                    break;
+            }
+        }
+    </script>
+    <label for="country">District:</label>
+    <select id="country" onchange="getCities()">
+        <option value="">Select District </option>
+        <option value="Kottayam ">Kottayam</option>
+        <option value="Kollam">Kollam</option>
+        <option value="Idukki">Idukki</option>
+        <option value="Kochi">Kochi</option>
+        <option value="Kannur">Kannur</option>
+    </select>
+    <br>
+    <br>
+    <label for="city">Branch:</label>
+    <select id="city">
+    </select>
+    <br>
+    <br>
+    <label for="purpose">Purpose:</label>
+
+  <select name="Account Type" id="Account Type">
+    <option value="">select</option>
+  <option value="SavingsAc">Savings Ac</option>
+  <option value="CurrentAc">Current Ac</option>
+  <option value="InternationalAc">International Ac</option>
+  </select>
+    <br>
+  <label>Materials provide:</label><br>
+    <input type="checkbox" id="matrls" name="matrl1" value="CreditCard">
+  <label for="matrls"> Credit Card</label><br>
+  <input type="checkbox" id="matrls1" name="matrl2" value="DebitCard">
+  <label for="matrls1"> Debit Card</label><br>
+  <input type="checkbox" id="matrsl2" name="matrl2" value="ChequeBook">
+  <label for="matrsl2">Cheque Book</label><br><br>
+  <input type="submit" value="Submit">
+
+</form>
+<a href=/home/credentials/login><button>Logout</button></a>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</body>
+</html>
